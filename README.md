@@ -29,6 +29,8 @@ Interactive API docs are available at `http://127.0.0.1:8000/docs`.
 
 - `GET /health` checks that the API process is responding.
 - `GET /ready` returns ready only after both models load.
+- `GET /api/classes` returns the ordered class mapping stored with the checkpoints.
+- `GET /api/results` returns the published three-seed experiment summary from `backend/models/results.json`.
 - `POST /api/predict` accepts a JPG, JPEG, or PNG image as multipart field `file` (up to 10 MB; decoded dimensions up to 25 megapixels).
 - `POST /api/generate` accepts JSON with `class_name` and optional `number_of_images` (1 to 8).
 
@@ -45,3 +47,11 @@ python backend/test_classifier.py
 ```
 
 They exercise model loading/inference and are not a pytest suite.
+
+Run the checkpoint and inference integrity suite from the project root with:
+
+```powershell
+python backend/test_model_integrity.py
+```
+
+This checks checkpoint compatibility, class metadata, inference output invariants, image validation, and conditional generation plumbing. It is not a dataset accuracy benchmark. See [the model audit](docs/model-audit.md) for verified results and known evidence gaps.

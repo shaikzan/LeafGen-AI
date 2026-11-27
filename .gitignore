@@ -37,3 +37,11 @@ uploads/
 # Generated test images
 backend/generated_images/
 backend/test_images/
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/.env
+frontend/.env.*
+!frontend/.env.example

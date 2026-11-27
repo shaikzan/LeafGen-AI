@@ -14,9 +14,11 @@ MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
 FILES = [
     "cnn_real.pt",
+    "cnn_aug.pt",
     "generator.pt",
     "classes.json",
-    "rare.json"
+    "rare.json",
+    "results.json",
 ]
 
 for filename in FILES:
